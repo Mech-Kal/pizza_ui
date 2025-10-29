@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Forno Pizza — Delicious &amp; Craft Pizzas</title>
+  <meta name="description" content="La Forno Pizza — handcrafted pizzas made from fresh ingredients. Dine-in, takeout & delivery. Open daily.">
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    /* Basic utility + project styles */
+    :root{
+      --accent:#d9534f; /* pizza-sauce red */
+      --muted:#6c757d;
+      --max-width:1200px;
+    }
+
+    html,body{height:100%;}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:#222;
+      line-height:1.4;
+      -webkit-font-smoothing:antialiased;
+      margin:0;
+      padding-top:72px; /* space for fixed header */
+      background:#fff;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link{
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus{
+      left: 1rem;
+      top: 1rem;
+      width:auto;
+      height:auto;
+      padding:0.5rem 1rem;
+      background:#000;
+      color:#fff;
+      z-index:2000;
+      border-radius:4px;
+    }
+
+    /* Header */
+    header.site-header{
+      position:fixed;
+      top:0;left:0;right:0;
+      background: rgba(255,255,255,0.98);
+      border-bottom:1px solid #eee;
+      z-index:1200;
+      height:72px;
+      display:flex;
+      align-items:center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .container--nav{max-width:var(--max-width);} 
+    .brand{
+      display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.125rem;
+    }
+    .brand img{height:40px;width:40px;border-radius:6px;object-fit:cover}
+
+    nav .nav-link{color:var(--muted);} 
+    nav .nav-link:focus, nav .nav-link:hover{color:var(--accent);}
+
+    /* Hero / Main banner */
+    .hero{
+      min-height:70vh;
+      display:flex;align-items:center;justify-content:center;
+      text-align:center;
+      color:white;
+      background-image: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1601924582971-3b9e6a8b1b2b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=');
+      background-size:cover;background-position:center;
+      padding:4rem 1rem;
+    }
+    .hero .lead{font-size:1.15rem;opacity:0.95}
+    .hero h1{font-size:clamp(1.75rem, 4vw, 3rem);margin-bottom:.5rem}
+
+    /* About */
+    .about{padding:4rem 1rem}
+    .about img{max-width:100%;height:auto;border-radius:10px;display:block}
+
+    /* Menu */
+    .menu{background:#fff;padding:3rem 1rem}
+    .menu .card{border:0}
+    .menu .menu-item{display:flex;gap:1rem;align-items:flex-start}
+    .menu .item-info{flex:1}
+    .menu .price{min-width:72px;text-align:right;font-weight:700}
+
+    /* Gallery */
+    .gallery{padding:3rem 1rem}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery-grid img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+    /* Find Us */
+    .findus{background:#f8f9fa;padding:3rem 1rem}
+
+    /* Footer */
+    footer.site-footer{background:#111;color:#eee;padding:2rem 1rem}
+    footer a{color:inherit}
+
+    /* Small screens */
+    @media (max-width:991px){
+      .gallery-grid{grid-template-columns:repeat(2,1fr)}
+      .hero{min-height:56vh}
+    }
+    @media (max-width:575px){
+      .gallery-grid{grid-template-columns:repeat(1,1fr)}
+      .menu .menu-item{flex-direction:column}
+      .menu .price{text-align:left}
+      header.site-header{height:64px;padding:0 0.5rem}
+    }
+
+    /* Focus outlines (visible) */
+    :focus{outline:3px solid #ffd0d0;outline-offset:2px}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container container--nav d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <a class="brand" href="#" aria-label="La Forno Pizza homepage">
+          <img src="https://images.unsplash.com/photo-1548365328-9f1b7f1c1c5d?q=80&w=200&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="La Forno logo">
+          <span>La Forno</span>
+        </a>
+      </div>
+
+      <nav class="d-none d-md-block" aria-label="Primary navigation">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#findus">Find Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="d-flex align-items-center gap-3">
+        <div class="d-none d-md-flex" aria-hidden="true">
+          <a href="#" class="text-muted" aria-label="facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S1.86 6.48 1.86 12.07C1.86 17.09 5.92 21.1 10.67 21.92v-6.89H8.27v-2.86h2.4V9.02c0-2.38 1.42-3.69 3.6-3.69 1.04 0 2.13.18 2.13.18v2.35h-1.2c-1.18 0-1.55.74-1.55 1.5v1.8h2.64l-.42 2.86h-2.22V21.9c4.75-.82 8.81-4.83 8.81-9.83z"></path></svg></a>
+          <a href="#" class="text-muted" aria-label="instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6zM18.5 6.1a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8z"></path></svg></a>
+        </div>
+
+        <!-- Mobile menu toggle -->
+        <button class="btn btn-outline-secondary d-md-none" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">Menu</button>
+      </div>
+    </div>
+
+    <!-- Mobile nav (collapsible) -->
+    <div id="mobileNav" class="d-md-none" hidden>
+      <div class="container py-2">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#findus">Find Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <!-- Hero / Banner -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container text-center">
+        <h1 id="hero-heading">Handcrafted Pizza, Fired to Perfection</h1>
+        <p class="lead">Fresh dough, house-made sauce, and toppings chosen with care. Dine with us or order online.</p>
+        <p class="mt-3"><a class="btn btn-lg btn-light" href="#menu">View Menu</a></p>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about container" aria-labelledby="about-heading">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 id="about-heading">About Us</h2>
+          <p>La Forno began as a small family-run pizzeria with a simple mission: great ingredients, honest recipes, and a warm table. We bake our pizzas in a wood-fired oven and celebrate seasonal produce and timeless flavor combinations.</p>
+          <p>Accessibility and hospitality are important to us — our dining room is wheelchair accessible and our staff are trained to help with dietary questions.</p>
+          <p><strong>Opening hours:</strong> Daily 11:00 — 23:00</p>
+        </div>
+        <figure class="col-md-6">
+          <img src="https://images.unsplash.com/photo-1542300057-6c0a8d7e6b69?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Chef sliding a pizza into a wood-fired oven"/>
+          <figcaption class="visually-hidden">Chef placing pizza into wood-fired oven</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="menu container" aria-labelledby="menu-heading">
+      <h2 id="menu-heading">Our Menu</h2>
+      <p class="text-muted">Sourced locally where possible — vegetarian and gluten-free options available. Use the keyboard to navigate; prices shown are in INR.</p>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <article class="card p-3" aria-labelledby="margherita-title">
+            <div class="menu-item">
+              <div class="item-info">
+                <h3 id="margherita-title">Margherita</h3>
+                <p class="small text-muted">San Marzano tomatoes, fresh mozzarella, basil, extra-virgin olive oil.</p>
+              </div>
+              <div class="price">₹349</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6">
+          <article class="card p-3" aria-labelledby="pepperoni-title">
+            <div class="menu-item">
+              <div class="item-info">
+                <h3 id="pepperoni-title">Pepperoni Classic</h3>
+                <p class="small text-muted">House pepperoni, mozzarella, tomato sauce, oregano.</p>
+              </div>
+              <div class="price">₹399</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6">
+          <article class="card p-3" aria-labelledby="veggie-title">
+            <div class="menu-item">
+              <div class="item-info">
+                <h3 id="veggie-title">Garden Veggie</h3>
+                <p class="small text-muted">Bell peppers, zucchini, mushrooms, olives, fresh herbs.</p>
+              </div>
+              <div class="price">₹379</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6">
+          <article class="card p-3" aria-labelledby="truffle-title">
+            <div class="menu-item">
+              <div class="item-info">
+                <h3 id="truffle-title">Truffle Funghi</h3>
+                <p class="small text-muted">Wild mushrooms, truffle oil, fontina cheese.</p>
+              </div>
+              <div class="price">₹549</div>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 mt-3">
+          <p class="small text-muted">All pizzas available in 10", 12" and 14". Gluten-free base available on request. Contact staff for allergy info.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel (Bootstrap) -->
+    <section class="container py-4" aria-labelledby="carousel-heading">
+      <h2 id="carousel-heading">Slice Gallery</h2>
+      <div id="pizzaCarousel" class="carousel slide" data-bs-ride="carousel" aria-roledescription="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1542826438-1e6c9f3d3f6b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" class="d-block w-100" alt="Pizza on wooden board with basil">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1601924582971-3b9e6a8b1b2b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" class="d-block w-100" alt="Close-up of a slice being lifted">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" class="d-block w-100" alt="Chef cutting pizza">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" class="d-block w-100" alt="Interior of the restaurant dining room">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1606756797441-9b4a3b8d3f8b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" class="d-block w-100" alt="Assorted fresh toppings on a table">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#pizzaCarousel" data-bs-slide="prev" aria-label="Previous slide">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#pizzaCarousel" data-bs-slide="next" aria-label="Next slide">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery container" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Gallery</h2>
+      <p class="text-muted">A few of our favourite moments — tap any image to open in a new tab.</p>
+      <div class="gallery-grid" role="list">
+        <a href="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" target="_blank" rel="noopener noreferrer" role="listitem"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Chef slicing pizza"></a>
+        <a href="https://images.unsplash.com/photo-1542826438-1e6c9f3d3f6b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" target="_blank" rel="noopener noreferrer" role="listitem"><img src="https://images.unsplash.com/photo-1542826438-1e6c9f3d3f6b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Pizza close up with cheese pull"></a>
+        <a href="https://images.unsplash.com/photo-1601924582971-3b9e6a8b1b2b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" target="_blank" rel="noopener noreferrer" role="listitem"><img src="https://images.unsplash.com/photo-1601924582971-3b9e6a8b1b2b?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Slice being pulled"></a>
+        <a href="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" target="_blank" rel="noopener noreferrer" role="listitem"><img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Dining area interior"></a>
+      </div>
+    </section>
+
+    <!-- Find Us -->
+    <section id="findus" class="findus" aria-labelledby="findus-heading">
+      <div class="container">
+        <h2 id="findus-heading">Find Us</h2>
+        <div class="row align-items-start">
+          <div class="col-md-6">
+            <p>Visit La Forno at:</p>
+            <address>
+              <strong>La Forno Pizza</strong><br>
+              123 Oven Street<br>
+              Culinary District, Mumbai, 400001<br>
+              <abbr title="Phone">P:</abbr> <a href="tel:+911234567890">+91 12345 67890</a>
+            </address>
+
+            <p><strong>Hours:</strong> Mon–Sun 11:00–23:00</p>
+            <p><strong>Email:</strong> <a href="mailto:hello@laforno.example">hello@laforno.example</a></p>
+          </div>
+
+          <div class="col-md-6 mt-3 mt-md-0" aria-hidden="false">
+            <!-- Google Maps embed (replace src with your place) -->
+            <div style="width:100%;height:300px;border-radius:8px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,0.08)">
+              <iframe title="La Forno location map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.123456789!2d72.8777!3d19.0760!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63d2c3c3c3c%3A0xa1a1a1a1a1a1a1a1!2sMumbai!5e0!3m2!1sen!2sin!4v0000000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer mt-4" role="contentinfo">
+    <div class="container d-md-flex justify-content-between align-items-center">
+      <div>
+        <p class="mb-0"><strong>La Forno Pizza</strong> — Fresh. Local. Friendly.</p>
+        <small class="text-muted">© <span id="year"></span> La Forno — All rights reserved.</small>
+      </div>
+      <nav aria-label="Footer navigation" class="mt-2 mt-md-0">
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link small" href="#menu">Menu</a></li>
+          <li class="nav-item"><a class="nav-link small" href="#findus">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple mobile nav toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileBtn && mobileBtn.addEventListener('click', () => {
+      const expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+      mobileBtn.setAttribute('aria-expanded', String(!expanded));
+      if(mobileNav.hasAttribute('hidden')){
+        mobileNav.removeAttribute('hidden');
+      } else {
+        mobileNav.setAttribute('hidden','');
+      }
+    });
+
+    // Pause carousel when user focuses on it (accessibility)
+    const carouselEl = document.getElementById('pizzaCarousel');
+    if(carouselEl){
+      carouselEl.addEventListener('focusin', () => {
+        const bs = bootstrap.Carousel.getInstance(carouselEl) || new bootstrap.Carousel(carouselEl,{ride:false});
+        bs.pause();
+      });
+      carouselEl.addEventListener('focusout', () => {
+        const bs = bootstrap.Carousel.getInstance(carouselEl);
+        bs && bs.cycle();
+      });
+    }
+  </script>
+</body>
+</html>
